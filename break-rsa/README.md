@@ -30,6 +30,7 @@ Gobuster discovered a hidden directory containing a public key file named id_rsa
 ## Step 3: Analyzing the Key
 
 The file id_rsa.pub was a standard OpenSSH public key, so the modulus (n) and exponent (e) needed to be extracted:
+
 ![breakrsa_pubkey](img/breakrsa_pubkey.png)
 ```bash
 ssh-keygen -f id_rsa.pub -e -m pem > key.pem
@@ -48,7 +49,7 @@ To exploit this weakness, a Python script was used to:
 - Derive the private key
 - Decrypt the protected data or use the key for access
 
-> The Python script implementing Fermat's factorization is available in this repository: ./breakrsa_exploit.py
+> The Python script implementing Fermat's factorization is available in this repository: [breakrsa_exploit.py](./breakrsa_exploit.py)
 
 Running this script quickly recovered the two prime factors of n, which then allowed reconstruction of the private RSA key.
 
