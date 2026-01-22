@@ -42,7 +42,7 @@ openssl rsa -pubin -in key.pem -text
 
 The room hinted that the primes (p) and (q) used to generate the key were very close to each other, making the key vulnerable to Fermat's factorization method.
 
-## Step 4: The Exploit (Scripting)
+## Step 4: The Exploit 
 
 To exploit this weakness, a Python script was used to:
 - Read the public key
@@ -51,7 +51,7 @@ To exploit this weakness, a Python script was used to:
 - Derive the private key
 - Decrypt the protected data or use the key for access
 
-> The Python script implementing Fermat's factorization is available in this repository: [breakrsa_exploit.py](./breakrsa_exploit.py)
+> The Python script implementing Fermat's factorization is available here : [breakrsa_exploit.py](./breakrsa_exploit.py)
 
 Running this script quickly recovered the two prime factors of n, which then allowed reconstruction of the private RSA key.
 
