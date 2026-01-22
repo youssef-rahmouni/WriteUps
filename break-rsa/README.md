@@ -1,5 +1,7 @@
 # BreakRSA - TryHackMe Writeup
 
+![BreakRSA Banner](img/breakrsa_banner.png)
+
 **Room:** BreakRSA - THM  
 **Difficulty:** Medium
 
