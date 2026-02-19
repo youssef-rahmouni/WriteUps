@@ -83,7 +83,7 @@ unzip 4.2.0.zip
 
 ![Directory contents](img/schemecatcher_devcontents.png)
 
-> **Tip:** Run `strings beacon.bin | grep -i flag` right away — there is a hidden flag inside
+> **Tip:** Run `strings beacon.bin ` right away — there is a hidden flag inside
 > the binary itself.
 
 
@@ -416,3 +416,4 @@ into a full system compromise:
 - [Advent of Cyber 2025 Day 9 – A Cracking Christmas](https://tryhackme.com/room/adventofcyber2025)
 - [House of Apple 2 – RoderickChan](https://www.roderickchan.cn/zh-cn/house-of-apple-%E4%B8%80%E7%A7%8D%E6%96%B0%E7%9A%84glibc%E4%B8%ADio%E6%94%BB%E5%87%BB%E6%96%B9%E6%B3%95-2/)
 - [leakless_research – corgeman (GitHub)](https://github.com/corgeman/leakless_research/tree/main/part_1)
+
