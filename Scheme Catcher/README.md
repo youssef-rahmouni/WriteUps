@@ -1,11 +1,11 @@
-    # SchemeCatcher – TryHackMe Writeup
+# SchemeCatcher – TryHackMe Writeup
 
 ![SchemeCatcher Banner](img/schemecatcher_banner.png)
 
 **Room:** SchemeCatcher – THM  
 **Difficulty:** Hard / Pwn-heavy side quest
 
----
+
 
 ## Introduction
 
@@ -14,7 +14,8 @@ analysis, heap exploitation, and a kernel-style device abuse to reach root. The 
 behind a key hidden in AoC Day 9, then escalates through multiple binaries until a custom `/dev`
 device hands you the final flag.
 
----
+
+
 
 ## Step 1: Getting the Side‑Quest Key (AoC Day 9)
 
@@ -38,7 +39,8 @@ http://schemecatcher.thm:21337
 > **Important:** Without this step the firewall blocks all traffic to the machine — nothing else
 > will work.
 
----
+
+
 
 ## Step 2: Initial Reconnaissance
 
@@ -59,7 +61,8 @@ Three ports are open:
 Port 80 shows a generic page with nothing useful in the source — directory brute-force is the
 next move.
 
----
+
+
 
 ## Step 3: Web Enumeration and First Binary
 
@@ -83,7 +86,8 @@ unzip 4.2.0.zip
 > **Tip:** Run `strings beacon.bin | grep -i flag` right away — there is a hidden flag inside
 > the binary itself.
 
----
+
+
 
 ## Step 4: Analysing `beacon.bin`
 
@@ -118,7 +122,8 @@ options 1–4.
 
 ![Testing the beacon menu options](img/schemecatcher_trymemu.png)
 
----
+
+
 
 ## Step 5: Intercepting the Internal HTTP Request
 
@@ -154,7 +159,8 @@ libc.so.6
 The `ld` and `libc` files let you reproduce the exact remote environment locally for
 safe testing before hitting the real target.
 
----
+
+
 
 ## Step 6: Analysing `server` — Use‑After‑Free
 
@@ -201,7 +207,8 @@ to the leaked base. That libc leak is the first goal of the exploit.
 
 ![](<img/schemecatcher_memoryaddrs.png>)
 
----
+
+
 
 ## Step 7: House of Apple 2 Exploit (Port 9004)
 
@@ -286,7 +293,8 @@ This gives a shell on port 9004 and the **third flag**.
 > The zip archive from Step 5 also contains an **SSH private/public key pair** for the
 > `agent` user — save it for the next step.
 
----
+
+
 
 ## Step 8: SSH as `agent` and Device Discovery
 
@@ -320,7 +328,8 @@ sudo /bin/chmod 444 /dev/kagent
 
 Run it. Read-only access is all that is needed to exploit the logic bug below.
 
----
+
+
 
 ## Step 9: Exploiting `/dev/kagent` for Root
 
@@ -383,7 +392,8 @@ cat /root/root.txt
 
 ![Root shell and final flag](img/schemecatcher_root.png)
 
----
+
+
 
 ## Conclusion
 
@@ -397,7 +407,8 @@ into a full system compromise:
 - A **logic flaw in a kernel-style ioctl interface** lets an unprivileged user redirect
   execution flow and gain root.
 
----
+
+
 
 ## Links
 
