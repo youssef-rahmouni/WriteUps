@@ -214,7 +214,7 @@ to the leaked base. That libc leak is the first goal of the exploit.
 
 Two scripts are used:
 
-- [`fsop_solve.py`](https://raw.githubusercontent.com/corgeman/leakless_research/refs/heads/main/part_1/fsop_solve.py) — exploit driver built with pwntools
+- [`fsop_solve.py`](https://github.com/youssef-rahmouni/WriteUps/blob/main/Scheme%20Catcher%2Ffsop_solve.py) — exploit driver built with pwntools
 - [`io_file.py`](https://raw.githubusercontent.com/corgeman/leakless_research/refs/heads/main/part_1/io_file.py) — IO_FILE helper implementing House of Apple 2 primitives (credit: RoderickChan)
 
 ### What Is House of Apple 2?
